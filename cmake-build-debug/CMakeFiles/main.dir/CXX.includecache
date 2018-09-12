@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/range.h
+vector
+-
+
+/Users/jazminbelmonte/Desktop/cs2420/assignment-01-jazminbelmonte/src/main.cpp
+iostream
+-
+range.h
+/Users/jazminbelmonte/Desktop/cs2420/assignment-01-jazminbelmonte/src/range.h
+
