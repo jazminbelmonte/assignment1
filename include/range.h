@@ -12,10 +12,10 @@ class Range {
 
         std::vector<T>& values(){ return nums; }
 
-        Range(T start, T end, T step): start(start), end(end), step(step) {
-                for ( T i = start; start < end ? i <= end : i >= end; i += step) {
-                    nums.push_back(i);
-                }
+        Range(T start, T end, T step = 1): start(start), end(end), step(step) {
+            for ( T i = start; start < end ? i <= end : i >= end; i += step) {
+                nums.push_back(i);
+            }
         }
 
         int length() const { return nums.size(); }
@@ -41,7 +41,7 @@ class Range {
         }
 
         T min() const {
-            T x = 0;
+            T x = start;
             for(T v : nums) {
                 if (v < x) {
                     x = v;
@@ -54,6 +54,7 @@ class Range {
             for(T v : range.nums) {
                 out << v << " ";
             }
+            out << std::endl;
             return out;
         }
 
@@ -62,8 +63,6 @@ class Range {
         T start;
         T end;
         T step;
-
-        //brandonshapiro9@gmail.com
 
 };
 
