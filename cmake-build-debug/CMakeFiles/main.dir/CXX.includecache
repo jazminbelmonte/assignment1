@@ -9,6 +9,8 @@
 ../include/range.h
 vector
 -
+iostream
+-
 
 /Users/jazminbelmonte/Desktop/cs2420/assignment-01-jazminbelmonte/src/main.cpp
 iostream

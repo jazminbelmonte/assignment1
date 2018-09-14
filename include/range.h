@@ -1,44 +1,70 @@
-//TODO: Class Range defined
+#include <vector>
+#include <iostream>
+
 #ifndef RANGE_H
 #define RANGE_H
-#include <vector>
 
-template <class T>
+
+
+template <typename T>
 class Range {
     public:
-        std::vector<T> values(){ return rdata; }
-        int length() const {
-            return rdata.size();
+
+        std::vector<T>& values(){ return nums; }
+
+        Range(T start, T end, T step): start(start), end(end), step(step) {
+                for ( T i = start; start < end ? i <= end : i >= end; i += step) {
+                    nums.push_back(i);
+                }
         }
+
+        int length() const { return nums.size(); }
 
         T sum() const {
-            for(T v : values()) {
-
-                std::cout << i << std::endl;
-            }
+            T x = 0;
+            for(T v : nums) {
+                x += v;
+            } return x;
         }
 
-        T average() const { return average; }
+        double average() const {
+            return static_cast<double>(sum()) / static_cast<double>(nums.size());
+        }
 
-        T max() const { return max; }
+        T max() const {
+            T x = 0;
+            for(T v : nums) {
+                if (v > x) {
+                    x = v;
+                }
+            } return x;
+        }
 
-        T min() const { return min; }
+        T min() const {
+            T x = 0;
+            for(T v : nums) {
+                if (v < x) {
+                    x = v;
+                }
+            } return x;
+        }
 
-        friend std::ostream&(std::ostream& out, Range& range2) {
-            for (Range* r : rdata.values()) {
-                out << r;
+        friend std::ostream& operator<<(std::ostream& out, Range& range)
+        {
+            for(T v : range.nums) {
+                out << v << " ";
             }
             return out;
-
         }
 
-
     private:
-        //implementing vector of data
-        std::vector<T> rdata;
-        int startNum;
-        int endNum;
-        int step;
+        std::vector<T> nums;
+        T start;
+        T end;
+        T step;
+
+        //brandonshapiro9@gmail.com
+
 };
 
 
@@ -59,15 +85,4 @@ class Range {
 //*this.sum()
 //this->sum
 
-/*std::string Range::operator<<(double startNum, double endNum, double step) {
-            while (startNum < endNum) {
-                startNum =+ step;
-                if (startNum > endNum) {
-                    startNum =- step;
-                    std::cout << startNum;
-                } else {
-                    std::cout << startNum;
-                }
-            }
-        }*/
 
